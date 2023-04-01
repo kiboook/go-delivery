@@ -13,11 +13,3 @@ type User struct {
 func (u *User) TableName() string {
 	return "users"
 }
-
-func (u *User) Create(db *gorm.DB) error {
-	return db.Create(u).Error
-}
-
-func (u *User) Update(db *gorm.DB) error {
-	return db.Save(u).Error
-}
