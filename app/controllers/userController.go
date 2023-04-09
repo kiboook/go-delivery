@@ -11,6 +11,15 @@ type UserController struct {
 
 var userService = new(services.UserService)
 
+// List userController godoc
+// @tags 회원
+// @Summary 회원 목록 조회
+// @Description 회원 목록 조회
+// @Accept  json
+// @Produce  json
+// @Router /users [get]
+// @Success 200
+// @Failure 400
 func (uc *UserController) List(c *gin.Context) {
 	users, err := userService.FindAll()
 	if err != nil {
