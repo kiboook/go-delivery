@@ -1,14 +1,16 @@
 package main
 
 import (
+	"go-delivery/app/router"
 	"go-delivery/config"
 )
 
 func main() {
-	// 설정 파일 로드
 	config.LoadConfig()
 
-	// DB connect
-	config.Connect()
+	config.InitDB()
 
+	r := router.SetupRouter()
+
+	_ = r.Run(":8080")
 }
