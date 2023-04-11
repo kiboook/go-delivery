@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	db *gorm.DB
+	DB *gorm.DB
 )
 
 func InitDB() {
@@ -22,12 +22,14 @@ func InitDB() {
 	dsn := fmt.Sprintf("%s:%s@(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", dbUser, dbPassword, dbHost, dbPort, dbName)
 
 	var err error
-	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(fmt.Sprintf("Failed to connect to database: %v", err))
 	}
+
+	DB = db
 }
 
 func GetDB() *gorm.DB {
-	return db
+	return DB
 }

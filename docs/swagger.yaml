@@ -1,0 +1,27 @@
+basePath: /api/v1
+host: localhost:8080
+info:
+  contact: {}
+  description: go-delivery
+  title: go-delivery
+  version: "1.0"
+paths:
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: 사용자 목록 조회
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+      summary: 사용자 목록 조회
+      tags:
+      - User
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
